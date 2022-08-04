@@ -1,0 +1,35 @@
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin width {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1120px;
+}
+
+@mixin option {
+  width: 100%;
+  background-color: rgb(66, 66, 66);
+  //   background-color: #ff5733;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+
+  font-weight: 600;
+  letter-spacing: 2px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+
+  transition: all 0.5s;
+
+  &:hover {
+    color: #a7bf00;
+  }
+}

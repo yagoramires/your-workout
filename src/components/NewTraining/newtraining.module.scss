@@ -1,0 +1,27 @@
+.newTraining {
+  padding: 2rem;
+}
+
+.option {
+  width: 100%;
+  background-color: rgb(66, 66, 66);
+  //   background-color: #ff5733;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+
+  font-weight: 600;
+  letter-spacing: 2px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+
+  transition: all 0.5s;
+}
+
+.option:hover {
+  color: #a7bf00;
+}
