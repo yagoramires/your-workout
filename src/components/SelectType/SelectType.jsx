@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from './newtraining.module.scss';
+import styles from './selectType.module.scss';
 import { BsArrowRightCircleFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 const NewTraining = () => {
   const trainingType = ['AB', 'ABC', 'ABCD', 'ABCDE', 'ABCDEF'];
@@ -13,10 +14,20 @@ const NewTraining = () => {
 
       {trainingType.map((option, i) => {
         return (
-          <p key={i} className={styles.option}>
+          <Link
+            to='/select-exercises'
+            key={i}
+            className={styles.option}
+            onClick={(e) => {
+              localStorage.setItem(
+                'newTrainingDivision',
+                JSON.stringify([...e.target.innerText]),
+              );
+            }}
+          >
             {option}
             <BsArrowRightCircleFill size={20} />
-          </p>
+          </Link>
         );
       })}
     </section>

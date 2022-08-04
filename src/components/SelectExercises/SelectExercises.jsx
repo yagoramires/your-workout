@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useStateContext } from '../../context/contextProvider';
 import styles from './selectExercises.module.scss';
 
 const SelectExercises = () => {
+  const { setSelectedMuscle } = useStateContext();
+
   const [muscularType, setMuscularType] = useState('');
 
   const muscularTypes = {
@@ -15,7 +19,7 @@ const SelectExercises = () => {
       <h1>Selecionar exercícios</h1>
 
       <div>
-        <h2 className={styles.lowerTitle}>Treino A</h2>
+        {/* <h2 className={styles.lowerTitle}>Treino </h2> */}
 
         {muscularType === '' ? (
           <div>
@@ -51,27 +55,42 @@ const SelectExercises = () => {
             {muscularType === 'superiores'
               ? muscularTypes.superiores.map((muscle, i) => {
                   return (
-                    <p key={i} className={styles.option}>
+                    <Link
+                      to='/exercises'
+                      key={i}
+                      className={styles.option}
+                      onClick={() => setSelectedMuscle(muscle)}
+                    >
                       {muscle}
-                    </p>
+                    </Link>
                   );
                 })
               : ''}
             {muscularType === 'inferiores'
               ? muscularTypes.inferiores.map((muscle, i) => {
                   return (
-                    <p key={i} className={styles.option}>
+                    <Link
+                      to='/exercises'
+                      key={i}
+                      className={styles.option}
+                      onClick={() => setSelectedMuscle(muscle)}
+                    >
                       {muscle}
-                    </p>
+                    </Link>
                   );
                 })
               : ''}
             {muscularType === 'tronco'
               ? muscularTypes.tronco.map((muscle, i) => {
                   return (
-                    <p key={i} className={styles.option}>
+                    <Link
+                      to='/exercises'
+                      key={i}
+                      className={styles.option}
+                      onClick={() => setSelectedMuscle(muscle)}
+                    >
                       {muscle}
-                    </p>
+                    </Link>
                   );
                 })
               : ''}

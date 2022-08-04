@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './header.module.scss';
 import { AiOutlineMenu } from 'react-icons/ai';
 
@@ -7,9 +8,9 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <span className={styles.logo}>
+      <Link to='/' className={styles.logo}>
         WORK<span>OUT</span>
-      </span>
+      </Link>
       <div
         onClick={() => {
           setActive(!active);
@@ -18,8 +19,8 @@ const Header = () => {
         <AiOutlineMenu size={25} className={styles.menuIcon} />
         {active ? (
           <nav className={styles.nav}>
-            <a href=''>Meus treinos</a>
-            <a href=''>Novo treino</a>
+            <Link to='/'>Meus treinos</Link>
+            <Link to='/'>Novo treino</Link>
           </nav>
         ) : (
           ''
