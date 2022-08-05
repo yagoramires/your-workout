@@ -16,7 +16,6 @@ export const ContextProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    console.log(selectedMuscle);
     if (selectedMuscle) {
       switch (selectedMuscle) {
         case 'Peito':
@@ -25,8 +24,8 @@ export const ContextProvider = ({ children }) => {
         case 'Costas':
           setSelectedMuscle('back');
           break;
-        case 'Ombro':
-          setSelectedMuscle('shoulders');
+        case 'Ombros':
+          setSelectedMuscle('delts');
           break;
         case 'Bíceps':
           setSelectedMuscle('biceps');

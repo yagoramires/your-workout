@@ -1,56 +1,32 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useStateContext } from '../../context/contextProvider';
 
+import ExerciseCard from '../ExerciseCard/ExerciseCard';
 import styles from './exercises.module.scss';
 
 const Exercises = () => {
   const { exercises, selectedMuscle } = useStateContext();
 
   const [filterExercises, setFilterExercises] = useState();
-  const [active, setActive] = useState(false);
-  const [id, setId] = useState(0);
 
   useEffect(() => {
-    if (exercises !== undefined) {
+    if (exercises !== undefined && selectedMuscle) {
       const filter = exercises.filter(
-        (exercise) => exercise.bodyPart === selectedMuscle,
+        (exercise) =>
+          exercise.target === selectedMuscle ||
+          exercise.bodyPart === selectedMuscle,
       );
       setFilterExercises(filter);
     }
-  }, [exercises]);
+  }, [selectedMuscle]);
 
   return (
     <div className={styles.exerciseModal}>
-      <p>x</p>
+      <Link to='/select-exercises'>Voltar</Link>
       {filterExercises
         ? filterExercises.map((exercise) => {
-            return (
-              <div
-                key={exercise.id}
-                className={`${
-                  active && id === exercise.id
-                    ? styles.active
-                    : styles.notActive
-                }`}
-              >
-                <img
-                  src={exercise.gifUrl}
-                  alt={exercise.name}
-                  onClick={() => {
-                    setId(exercise.id);
-                    setActive(!active);
-                  }}
-                />
-                <p
-                  onClick={() => {
-                    setId(exercise.id);
-                    setActive(!active);
-                  }}
-                >
-                  {exercise.name}
-                </p>
-              </div>
-            );
+            return <ExerciseCard exercise={exercise} key={exercise.id} />;
           })
         : ''}
     </div>

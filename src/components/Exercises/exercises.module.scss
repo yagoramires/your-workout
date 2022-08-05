@@ -1,79 +1,35 @@
 .exerciseModal {
   position: absolute;
-  background-color: rgb(32, 32, 32);
   top: 5rem;
   left: 0;
+
   width: 100%;
   max-height: 95vh;
-  overflow-y: scroll;
-  padding: 1rem;
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   gap: 0.5rem;
+  padding: 1rem;
 
-  & > p {
-    top: 6rem;
-    right: 0.5rem;
+  background-color: rgb(32, 32, 32);
+
+  overflow-y: scroll;
+
+  & > a {
     position: fixed;
+    bottom: 1rem;
+    right: -5px;
+
+    width: 70px;
+    height: 35px;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
     font-weight: 600;
-    background-color: #dfff00;
     color: rgb(32, 32, 32);
-    border-radius: 0.5rem;
-    width: 50px;
-    height: 50px;
-  }
 
-  & > .notActive {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background-color: #fff;
-    width: 100%;
-    border-radius: 0.5rem;
-
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
-
-    & > p {
-      max-width: 65%;
-      color: #546000;
-      text-transform: capitalize;
-    }
-
-    & > img {
-      margin-left: 0.5rem;
-      max-width: 50px;
-      border-radius: 0.5rem;
-    }
-  }
-
-  & > .active {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1rem;
-    background-color: #fff;
-    width: 100%;
-    border-radius: 0.5rem;
-
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
-
-    & > p {
-      color: #546000;
-      text-transform: capitalize;
-      text-align: center;
-    }
-
-    & > img {
-      width: 50%;
-      border-radius: 0.5rem;
-    }
+    background-color: #dfff00;
   }
 }
